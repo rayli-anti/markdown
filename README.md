@@ -1,742 +1,161 @@
-# Markdown
-A markdown example shows how to write a markdown file. This document integrates core syntax and extensions (GMF).
+# GLaDOS Take Home Challenge: *Tagging*
 
-* [Block Elements](#block-elements)
-  * [Paragraphs and Line Breaks](#paragraphs-and-line-breaks)
-  * [Headers](#headers)
-  * [Blockquotes](#blockquotes)
-  * [Lists](#lists)
-  * [Code Blocks](#code-blocks)
-  * [Horizontal Rules](#horizontal-rules)
-  * [Table](#table)
-* [Span Elements](#span-elements)
-  * [Links](#links)
-  * [Emphasis](#emphasis)
-  * [Code](#code)
-  * [Images](#images)
-  * [Strikethrough](#strikethrough)
-* [Miscellaneous](#miscellaneous)
-  * [Automatic Links](#automatic-links)
-  * [Backslash Escapes](#backslash-escapes)
-* [Inline HTML](#inline-html)
+Our main vision within the GLaDOS Machine Learning Engineering team at Sky is to create a framework and tooling for Data Scientists to work effectively from experimentation to production. We want to put ML models into production, *and keep them there*!
 
-## Block Elements
-### Paragraphs and Line Breaks
-#### Paragraphs
-HTML Tag: `<p>`
+At Sky, every piece of content (TV Show, Movie, Sports event, etc) has *metadata* attached to it - the title, the release year, synopsis, etc.
 
-One or more blank lines. (A blank line is a line containing nothing but **spaces** or **tabs** is considered blank.)
-
-Code:
-
-    This will be 
-    inline.
-    
-    This is second paragraph.
-Preview:
-***
-This will be 
-inline.
-
-This is second paragraph.
-***
-#### Line Breaks
-HTML Tag: `<br />`
-
-End a line with **two or more spaces**.
-
-Code:
-
-    This will be not  
-    inline.
-Preview:
-***
-This will be not  
-inline.
-***
-
-### Headers
-Markdown supports two styles of headers, Setext and atx.
-#### Setext
-HTML Tags: `<h1>`, `<h2>`
-
-“Underlined” using **equal signs (=)** as `<h1>` and **dashes (-)** as `<h2>` in any number.
-
-Code:
-
-    This is an H1
-    =============
-    This is an H2
-    -------------
-Preview:
-***
-This is an H1
-=============
-
-This is an H2
--------------
-***
-#### atx
-HTML Tags: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`
-
-Uses 1-6 **hash characters (#)** at the start of the line, corresponding to `<h1>` - `<h6>`.
-
-Code:
-
-    # This is an H1
-    ## This is an H2
-    ###### This is an H6
-Preview:
-***
-# This is an H1
-## This is an H2
-###### This is an H6
-***
-Optionally, you may “close” atx-style headers. The closing hashes **don’t need to match** the number of hashes used to open the header.
-
-Code:
-
-    # This is an H1 #
-    ## This is an H2 ##
-    ### This is an H3 ######
-Preview:
-***
-# This is an H1 #
-## This is an H2 ##
-### This is an H3 ######
-***
-
-### Blockquotes
-HTML Tag: `<blockquote>`
-
-Markdown uses email-style **>** characters for blockquoting. It looks best if you hard wrap the text and put a > before every line.
-
-Code:
-
-    > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-    > consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-    > Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-    > 
-    > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-    > id sem consectetuer libero luctus adipiscing.
-Preview:
-***
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-> 
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-> id sem consectetuer libero luctus adipiscing.
-
-***
-Markdown allows you to be lazy and only put the > before the first line of a hard-wrapped paragraph.
-
-Code:
-
-    > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-    consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-    Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-    
-    > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-    id sem consectetuer libero luctus adipiscing.
-Preview:
-***
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-id sem consectetuer libero luctus adipiscing.
-
-***
-Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by adding additional levels of >.
-
-Code:
-
-    > This is the first level of quoting.
-    >
-    > > This is nested blockquote.
-    >
-    > Back to the first level.
-Preview:
-***
-> This is the first level of quoting.
->
-> > This is nested blockquote.
->
-> Back to the first level.
-
-***
-Blockquotes can contain other Markdown elements, including headers, lists, and code blocks.
-
-Code:
-
-    > ## This is a header.
-    > 
-    > 1.   This is the first list item.
-    > 2.   This is the second list item.
-    > 
-    > Here's some example code:
-    > 
-    >     return shell_exec("echo $input | $markdown_script");
-Preview:
-***
-> ## This is a header.
-> 
-> 1.   This is the first list item.
-> 2.   This is the second list item.
-> 
-> Here's some example code:
-> 
->     return shell_exec("echo $input | $markdown_script");
-
-***
-
-### Lists
-Markdown supports ordered (numbered) and unordered (bulleted) lists.
-#### Unordered
-HTML Tag: `<ul>`
-
-Unordered lists use **asterisks (*)**, **pluses (+)**, and **hyphens (-)**.
-
-Code:
-
-    *   Red
-    *   Green
-    *   Blue
-Preview:
-***
-*   Red
-*   Green
-*   Blue
-
-***
-is equivalent to:
-
-Code:
-
-    +   Red
-    +   Green
-    +   Blue
-and:
-
-Code:
-
-    -   Red
-    -   Green
-    -   Blue
-#### Ordered
-HTML Tag: `<ol>`
-
-Ordered lists use numbers followed by periods:
-
-Code:
-
-    1.  Bird
-    2.  McHale
-    3.  Parish
-Preview:
-***
-1.  Bird
-2.  McHale
-3.  Parish
-
-***
-It’s possible to trigger an ordered list by accident, by writing something like this:
-
-Code:
-
-    1986. What a great season.
-Preview:
-***
-1986. What a great season.
-
-***
-You can **backslash-escape (\\)** the period:
-
-Code:
-
-    1986\. What a great season.
-Preview:
-***
-1986\. What a great season.
-
-***
-#### Indented
-
-##### Blockquote
-To put a blockquote within a list item, the blockquote’s > delimiters need to be indented:
-
-Code:
-
-    *   A list item with a blockquote:
-
-        > This is a blockquote
-        > inside a list item.
-Preview:
-***
-*   A list item with a blockquote:
-
-    > This is a blockquote
-    > inside a list item.
-
-***
-##### Code Block
-To put a code block within a list item, the code block needs to be indented twice — **8 spaces** or **two tabs**:
-
-Code:
-
-    *   A list item with a code block:
-
-            <code goes here>
-Preview:
-***
-*   A list item with a code block:
-
-        <code goes here>
-
-***
-##### Nested List
-Code:
-
-    * A
-      * A1
-      * A2
-    * B
-    * C
-Preview:
-***
-* A
-  * A1
-  * A2
-* B
-* C
-
-***
-### Code Blocks
-HTML Tag: `<pre>`
-
-Indent every line of the block by at least **4 spaces** or **1 tab**.
-
-Code:
-
-    This is a normal paragraph:
-
-        This is a code block.
-Preview:
-***
-This is a normal paragraph:
-
-    This is a code block.
-***
-A code block continues until it reaches a line that is not indented (or the end of the article).
-
-Within a code block, ***ampersands (&)*** and angle **brackets (< and >)** are automatically converted into HTML entities.
-
-Code:
-
-        <div class="footer">
-            &copy; 2004 Foo Corporation
-        </div>
-Preview:
-***
-    <div class="footer">
-        &copy; 2004 Foo Corporation
-    </div>
-***
-Following sections Fenced Code Blocks and Syntax Highlighting are extensions, you can use the other way to write the code block.
-#### Fenced Code Blocks
-Just wrap your code in ```` ``` ```` (as shown below) and you won't need to indent it by four spaces.
-
-Code:
-
-    Here's an example:
-
-    ```
-    function test() {
-      console.log("notice the blank line before this function?");
-    }
-    ```
-Preview:
-***
-Here's an example:
+A *tag* is a kind of metadata that quickly describes a piece of content. For example, the movie `Die Hard` could have the following tags:
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
+heist, christmas, hostages, police, Bruce Willis, Alan Rickman, Los Angeles, skyscraper
+```
+
+Imagine a Data Scientist has created a brand new model to automatically create these tags for a given movie or TV programme, based on the synopsis alone. They're excited to put it into production, and need your help to do so.
+
+> n.b. Don't worry about completing every part of this exercise, and don't spend too much time on it! We've intentionally made this open ended, to allow you to show off if you want to, or to prove your skills within a fair amount of time.
+
+## Part 0: Setup
+Before you start, make sure you have a python development environment set up. The project assumes Python 3.7. We're currently using [poetry](https://python-poetry.org/) to manage dependencies, which we advise you to do the same. ```poetry``` has many advantages over ```pip``` or ```pipenv``` but if you want to use either of those then you can easiliy make a ```Pipfile``` from the included ```pyproject.toml``` file. 
+
+On `osx` / `linux`, you can just use this command to install poetry:
+
+```
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+```
+The installation will modify your Bash profile, but if you are already in a Bash shell, then you will either need to re-run your profile;
+
+```shell
+source ~/.bash_profile
+```
+or just update the ```PATH``` in the current shell directly:
+```shell
+export PATH="$HOME/.poetry/bin:$PATH"
+```
+<!-- TODO: set up poetry inside tagging/ -->
+Once you've got that installed, run `poetry install` in the root directory of this project, then run `poetry shell`.
+
+Part 1 should be easy to run once you've installed the dependencies. For example, just run:
+
+```
+python part1
+```
+
+To run the tests (that you should fix and complete), you can just run:
+
+```
+pytest part1
+```
+(both from the root of this directory)
+
+> n.b. The tests will fail when you run them initially, it will be your job to update them (they're not really testing anything at the moment) and make them pass.
+
+## Part 1: Preprocessing
+We have some content we'd like to generate tags for. For each piece of content, we have the following metadata (called an `EntityDetails` object):
+
+```
+{
+  "id": "...",
+  "title": "...",
+  "shortSynopsis": "...",
+  "mediumSynopsis": "...",
+  "longSynopsis": "...",
+  "genre": "...",
+  "subgenres": [ "..." ]
 }
 ```
-***
-#### Syntax Highlighting
-In your fenced block, add an optional language identifier and we'll run it through syntax highlighting ([Support Languages](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)).
-
-Code:
-
-    ```ruby
-    require 'redcarpet'
-    markdown = Redcarpet.new("Hello World!")
-    puts markdown.to_html
-    ```
-Preview:
-***
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-***
-### Horizontal Rules
-HTML Tag: `<hr />`
-Places **three or more hyphens (-), asterisks (*), or underscores (_)** on a line by themselves. You may use spaces between the hyphens or asterisks.
-
-Code:
-
-    * * *
-    ***
-    *****
-    - - -
-    ---------------------------------------
-    ___
-Preview:
-***
-* * *
-***
-*****
-- - -
----------------------------------------
-___
-***
-### Table
-HTML Tag: `<table>`
-
-It's an extension.
-
-Separates column by **pipe (|)** and header by **dashes (-)**, and uses **colon (:)** for alignment.
-
-The outer **pipes (|)** and alignment are optional. There are **3 delimiters** each cell at least for separating header.
-
-Code:
-```
-| Left | Center | Right |
-|:-----|:------:|------:|
-|aaa   |bbb     |ccc    |
-|ddd   |eee     |fff    |
-
- A | B 
----|---
-123|456
-
-
-A |B 
---|--
-12|45
-```
-Preview:
-***
-| Left | Center | Right |
-|:-----|:------:|------:|
-|aaa   |bbb     |ccc    |
-|ddd   |eee     |fff    |
-
- A | B 
----|---
-123|456
-
-A |B 
---|--
-12|45
-***
-## Span Elements
-### Links
-HTML Tag: `<a>`
-
-Markdown supports two style of links: inline and reference.
-
-#### Inline
-Inline link format like this: `[Link Text](URL "Title")`
-
-Title is optional.
-
-Code:
-
-    This is [an example](http://example.com/ "Title") inline link.
-    
-    [This link](http://example.net/) has no title attribute.
-Preview:
-***
-This is [an example](http://example.com/ "Title") inline link.
-
-[This link](http://example.net/) has no title attribute.
-***
-If you’re referring to a local resource on the same server, you can use relative paths:
 
-Code:
 
-    See my [About](/about/) page for details. 
-Preview:
-***
-See my [About](/about/) page for details. 
-***
-#### Reference
-You could predefine link references. Format like this: `[id]: URL "Title"`
+Before we can use the model to generate the tags, we need to perform some preprocessing to match what the Data Scientist did before training. Sadly they seem to have lost the preprocessing code, but they have remembered the steps they took, so it's up to you to convert these instructions into code.
 
-Title is also optional. And the you refer the link, format like this: `[Link Text][id]`
+The model in question takes a text feature as it's input, which is a string containing parts of the `EntityDetails` object.
 
-Code:
+### *1.1: Creating the Text Feature*
+The model requires a text feature, which is a single string comprising all the relevant information from the input EntityDetails. The feature is created as follows:
+1. Take the longest of the 3 synopses (even if it is not `longSynopsis`)
+2. Prepend the genre to the synopsis, separated by a space
+3. Join all the subgenres, separated by spaces, and prepend to the string
+containing the subgenre and longest synopsis.
 
-    [id]: http://example.com/  "Optional Title Here"
-    This is [an example][id] reference-style link.
-Preview:
-***
-[id]: http://example.com/  "Optional Title Here"
-This is [an example][id] reference-style link.
-***
-That is:
+To start, complete the `preprocess` method in [part1/preprocessing_service.py](part1/preprocessing_service.py) so that it will create the text feature from a single EntityDetails object. 
 
-* Square brackets containing the link identifier (**not case sensitive**, optionally indented from the left margin using up to three spaces);
-* followed by a colon;
-* followed by one or more spaces (or tabs);
-* followed by the URL for the link;
-* The link URL may, optionally, be surrounded by angle brackets.
-* optionally followed by a title attribute for the link, enclosed in double or single quotes, or enclosed in parentheses.
+Make sure to add unit tests in [part1/test_preprocessing_service.py](part1/test_preprocessing_service.py). Remember that Pytest will be installed if you used `poetry`, but feel free to use whatever testing framework you like. 
 
-The following three link definitions are equivalent:
+You'll find a some example data that we'd like to create tags for in [example_data/](example_data/README.md).
+In `train/` you'll find labelled examples ready to be trained with, and you'll find a smaller set of unlabelled examples in `eval` which are ready for prediction. Note how some of the data is missing or in a bad format. Assume a "~" means n/a or null.
 
-Code:
+Running `python part1` from the root of this directory will initially loop through the example data, and attempt to preprocess each example using the `preprocess` method you create (see [part1/\_\_main\_\_.py](part1/__main__.py). Note that you are allowed to edit `part1/__main__.py`!
 
-    [foo]: http://example.com/  "Optional Title Here"
-    [foo]: http://example.com/  'Optional Title Here'
-    [foo]: http://example.com/  (Optional Title Here)
-    [foo]: <http://example.com/>  "Optional Title Here"
-Uses an empty set of square brackets, the link text itself is used as the name.
 
-Code:
+### *1.2: Cleaning the Text Feature*
+To make things easier for the model we must remove useless or misleading
+information. Once you have the text feature from the previous stage you must
+then:
+1. Remove all numbers
+2. Remove punctuation: `?` `!` `'` `"` `#` `:` 
+1. Replace separators and special characters with spaces, for example: `.` `,` `)` `(` `\` `/` `-`
+2. Replace sequences of more than one space with one space.
+3. Replace newlines with spaces
+4. Remove all words shorter than a configurable length
+5. Lemmatize all words
+6. Remove all stop words
 
-    [Google]: http://google.com/
-    [Google][]
-Preview:
-***
-[Google]: http://google.com/
-[Google][]
-***
-### Emphasis
-HTML Tags: `<em>`, `<strong>`
+You can use any of the following packages, in combination, or something else!
+- [textblob](https://textblob.readthedocs.io/en/dev/quickstart.html#words-inflection-and-lemmatization)
+- [Spacy](https://spacy.io/)
+- [Keras Tokenizer](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text)
 
-Markdown treats **asterisks (*)** and **underscores (_)** as indicators of emphasis. **One delimiter** will be  `<em>`; **double delimiters* will be `<strong>`.
+These are specified in `pyproject.toml`, so if you install the dependencies via poetry this will be installed in the virtual environment.
 
-Code:
+Implement a `clean` method or class which takes in a string and makes the above modifications. Call this from your `preprocess` method in [part1/preprocessing_service.py](part1/preprocessing_service.py), with the text feature you created in the previous part.
 
-    *single asterisks*
 
-    _single underscores_
+### Part 1.3: *Tokenization*
+To finish off our preprocessing service, we need to tokenize our text feature and convert to a vector format, in order for the ML model to do some mathematical magic on. The Data Scientist tells you that they used the [Keras Tokenizer](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer), but they've lost the fitted vocabulary they created. They fitted it based on the training data, so you'll need to redo this. 
 
-    **double asterisks**
+Inside [part1/\_\_main\_\_.py](part1/__main__.py), create an instance of the Keras Tokenizer, and fit the tokenizer on the [training catalogue](example_data/train/train_catalogue.csv). Save the tokenizer to a JSON file - the Data Scientist forgot to do this! Ensure that your code only fits the tokenizer and creates the JSON file the first time it is run - on subsequent runs, it should load the saved state of the Tokenizer using the JSON file - see the Tensorflow docs on how to do this.
 
-    __double underscores__
-Preview:
-***
-*single asterisks*
+Refactor the [PreprocessingService](part1/preprocessing_service.py) so that it can be initialized with the tokenizer, and then use the tokenizer in `preprocess` to convert the cleaned text feature into a sequence of integers.
 
-_single underscores_
 
-**double asterisks**
+Remember to add unit tests!
 
-__double underscores__
-***
-But if you surround an * or _ with spaces, it’ll be treated as a literal asterisk or underscore.
+**The final outcome of [part1](part1/__main__.py) will be the saved JSON vocabulary, and the printed output of preprocessing the eval catalogue to create the sequence of integers that will be used for prediction.**
 
-You can backslash escape it:
+---
 
-Code:
+## Part 2: Taking it further
 
-    \*this text is surrounded by literal asterisks\*
-Preview:
-***
-\*this text is surrounded by literal asterisks\*
-***
-### Code
-HTML Tag: `<code>`
+Now we've got preprocessing ready, we'll be able to call the model with our content and generate a bunch of lovely tags. But what next? 
 
-Wraps it with **backtick quotes (`)**.
+Please answer the following open-ended questions in `part2.txt`:
 
-Code:
+*2.1:* Eventually your team creates an API that allows users to send in an `EntityDetails` object, process the data, and query the model in order to receive the predicted tags back. How would you ensure that this API copes with thousands of users at once?
 
-    Use the `printf()` function.
-Preview:
-***
-Use the `printf()` function.
-***
-To include a literal backtick character within a code span, you can use **multiple backticks** as the opening and closing delimiters:
-
-Code:
+*2.2:* You've successfully put the model in production. But six months down the line, the model doesn't seem to be performing very well, and the users are complaining. Why might this be, and what steps would you take to improve the performance?
 
-    ``There is a literal backtick (`) here.``
-Preview:
-***
-``There is a literal backtick (`) here.``
-***
-The backtick delimiters surrounding a code span may include spaces — one after the opening, one before the closing. This allows you to place literal backtick characters at the beginning or end of a code span:
+*2.3:* How would you approach the tagging problem if you were tackling it from scratch?
 
-Code:
 
-    A single backtick in a code span: `` ` ``
+---
+## Part 3: Extras
 
-    A backtick-delimited string in a code span: `` `foo` ``
-Preview:
-***
-A single backtick in a code span: `` ` ``
+> n.b. This part is for you to show off, **if and only if you want to**. We're not expecting anyone to do this, but want to give people the option.
 
-A backtick-delimited string in a code span: `` `foo` ``
-***
-### Images
-HTML Tag: `<img />`
-
-Markdown uses an image syntax that is intended to resemble the syntax for links, allowing for two styles: inline and reference.
-#### Inline
-
-Inline image syntax looks like this: `![Alt text](URL "Title")`
-
-Title is optional.
-
-Code:
-
-    ![Alt text](/path/to/img.jpg)
-
-    ![Alt text](/path/to/img.jpg "Optional title")
-Preview:
-***
-![Alt text](/path/to/img.jpg)
-
-![Alt text](/path/to/img.jpg "Optional title")
-***
-That is:
-
-* An exclamation mark: !;
-* followed by a set of square brackets, containing the alt attribute text for the image;
-* followed by a set of parentheses, containing the URL or path to the image, and an optional title attribute enclosed in double or single quotes.
-
-#### Reference
-Reference-style image syntax looks like this: `![Alt text][id]`
-
-Code:
-
-    [img id]: url/to/image  "Optional title attribute"
-    ![Alt text][img id]
-Preview:
-***
-[img id]: url/to/image  "Optional title attribute"
-![Alt text][img id]
-***
-### Strikethrough
-HTML Tag: `<del>`
-
-It's an extension.
-
-GFM adds syntax to strikethrough text.
-
-Code:
-```
-~~Mistaken text.~~
-```
-Preview:
-***
-~~Mistaken text.~~
-***
-## Miscellaneous
-### Automatic Links
-Markdown supports a shortcut style for creating “automatic” links for URLs and email addresses: simply surround the URL or email address with angle brackets. 
-
-Code:
-
-    <http://example.com/>
-    
-    <address@example.com>
-Preview:
-***
-<http://example.com/>
-
-<address@example.com>
-***
-GFM will autolink standard URLs.
-
-Code:
-```
-https://github.com/emn178/markdown
-```
-Preview:
-***
-https://github.com/emn178/markdown
-***
-
-### Backslash Escapes
-Markdown allows you to use backslash escapes to generate literal characters which would otherwise have special meaning in Markdown’s formatting syntax.
-
-Code:
-
-    \*literal asterisks\*
-Preview:
-***
-\*literal asterisks\*
-***
-Markdown provides backslash escapes for the following characters:
-
-Code:
-
-    \   backslash
-    `   backtick
-    *   asterisk
-    _   underscore
-    {}  curly braces
-    []  square brackets
-    ()  parentheses
-    #   hash mark
-    +   plus sign
-    -   minus sign (hyphen)
-    .   dot
-    !   exclamation mark
-
-## Inline HTML
-For any markup that is not covered by Markdown’s syntax, you simply use HTML itself. There’s no need to preface it or delimit it to indicate that you’re switching from Markdown to HTML; you just use the tags.
-
-Code:
-
-    This is a regular paragraph.
-
-    <table>
-        <tr>
-            <td>Foo</td>
-        </tr>
-    </table>
-
-    This is another regular paragraph.
-Preview:
-***
-This is a regular paragraph.
-
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
-
-This is another regular paragraph.
-***
-Note that Markdown formatting syntax is **not processed within block-level HTML tags**. 
-
-Unlike block-level HTML tags, Markdown syntax is **processed within span-level tags**.
-
-Code:
-
-    <span>**Work**</span>
-    
-    <div>
-        **No Work**
-    </div>
-Preview:
-***
-<span>**Work**</span>
-
-<div>
-  **No Work**
-</div>
-***
+Explore the data given to you in [example_data/](example_data/README.md), and see what you can get out of it. This *might* be one of the following, or something else you think would be interesting:
+- a notebook on exploratory data analysis
+- a wrapper around the preprocessing service that serves it as an API over HTTP
+- a simple but powerful model
+- a full blown ML pipeline in TFX or anther framework
+
+Put everything you do in this part in a folder title `part3`. Feel free to import code from part 1!
+
+---
+
+## Part 4: Submit
+Please zip up the entire directory and send it back to us.
+
+Make sure to include your answers to part 2 in `part2_answers.txt`.
+
+We need to be able to run your code and tests, so please add any instructions if needed, or specify any extra dependencies in `pyproject.toml` by using `poetry add <package>`.
+
+
